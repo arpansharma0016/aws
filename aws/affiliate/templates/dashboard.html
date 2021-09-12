@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrapmin.css' %}">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+   
+   <button><a href="site-{{request.user.username}}" target="_blank">View Site</a></button>
+   <form method="POST" action="add_products">{% csrf_token %}
+        Image Link <input type="text" name="product_image" required><br>
+        Product Name <input type="text" name="product_name" required><br>
+        Text Link <input type="text" name="product_text_link" required><br>
+        Description <input type="text" name="product_description" required><br>
+        Price <input type="number" name="product_price" required ><br>
+        <input type="submit">
+    </form>
+    
+   
+   <!-- Button trigger modal -->
+   {% for product in userpro %}
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{product.id}}">
+  Launch {{product.product_name}} modal
+</button><button><a href="delete/{{product.id}}">Delete</a></button>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"><a href="{{product.product_text_link}}">{{product.product_name}}</a></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+              
+                  </div>
+                  <div class="modal-body">
+                  
+                    <div style="text-align: center">{{ product.product_image |safe}}</div>
+                  </div>
+                  
+                  <div class="modal-title" style="padding: 2rem">
+                      {{ product.product_description }}
+                  </div>
+                  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button><a href="delete/{{product.id}}">Delete</a></button>
+        
+      </div>
+                </div>
+              </div>
+            </div><br>
+  {% endfor %}
+   
+   
+   
+   
+   
+    
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'slim.min.js' %}"></script>
+    <script src="{% static 'pooper.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+  </body>
+</html>

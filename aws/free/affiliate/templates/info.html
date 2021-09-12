@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Enter Additional Information required in your site.</title>
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/icon type">
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'form/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'form/css/style.css' %}">
+</head>
+<body><br>
+
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Additional Information
+                        </h2>
+                        {% for message in messages %}
+                        <p style="color: rgb(255, 1, 1)">{{message}}</p><br><br>
+                        {% endfor %}
+                        <form method="POST" class="register-form" id="register-form" action="info">
+                          {% csrf_token %}
+                           <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-card-membership material-icons-name"></i></label>
+                                <input required type="text" name="website_name" id="name" placeholder="Website Name" value="{{infor.website_name}}"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-collection-bookmark material-icons-name"></i></label>
+                                <input required type="text" name="website_title" id="name" placeholder="Website Title" value="{{infor.website_title}}"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-shopping-cart"></i></label>
+                                <input required type="text" name="kind_of_products" id="email" placeholder="Kind Of Products" value="{{infor.kind_of_products}}"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-pin-drop"></i></label>
+                                <input required type="text" name="country" id="pass" placeholder="Country Or Region" value="{{infor.country}}"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-money"></i></label>
+                                <input required type="text" name="currency" id="re_pass" placeholder="Currency" list="browsers" value="{{infor.currency}}"/>
+                                    <datalist id="browsers">
+                                        <option value="₹">
+                                        <option value="$">
+                                        <option value="€">
+                                        <option value="£">
+                                    </datalist>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Next"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{% static 'form/images/info.png' %}" alt="sing up image"></figure>
+                        
+                    </div>
+                </div>
+            </div>
+
+        
+
+    <!-- JS -->
+    <script src="{% static 'form/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'form/js/main.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

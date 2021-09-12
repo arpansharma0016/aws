@@ -1,0 +1,335 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Add Banners, Ads and Widgets to your Affiliator.in Dashboard.</title>
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/icon type">
+
+    <!-- Fontfaces CSS-->
+    <link href="{% static 'dashboard/css/font-face.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="{% static 'dashboard/vendor/bootstrap-4.1/bootstrap.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'dashboard/vendor/animsition/animsition.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/wow/animate.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/css-hamburgers/hamburgers.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/slick/slick.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/perfect-scrollbar/perfect-scrollbar.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'dashboard/css/theme.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lite-editor.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header" action="search" method="POST">{% csrf_token %}
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for Products &amp; Affiliate..." />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                            <div class="header-button"><h3>Extras &nbsp;</h3>
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="{% static 'dashboard/images/icon/avatar-01.jpg' %}" alt="John Doe" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">{{request.user.username}}</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="{% static 'dashboard/images/icon/avatar-01.jpg' %}" alt="{{request.user.username}}" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">{{request.user.first_name}}</a>
+                                                    </h5>
+                                                    <span class="email">{{request.user.email}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="dashboard">
+                                                        <i class="zmdi zmdi-account"></i>Dashboard</a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="add_products">
+                                                        <i class="zmdi zmdi-settings"></i>Add Products</a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="edit_products">
+                                                        <i class="zmdi zmdi-edit"></i>Edit Products</a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="info">
+                                                        <i class="zmdi zmdi-money-box"></i>Website Information</a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="add_banner">
+                                                        <i class="zmdi zmdi-aspect-ratio-alt"></i>Banner, Ads and Search</a>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="logout">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Add Banner</h2>
+                                    {% for message in messages %}
+                                    <p style="color: rgb(20, 207, 67)">{{message}}</p>
+                                    {% endfor %}
+                                    <button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i><a href="../{{request.user.username}}" target="_blank" style="color: aliceblue">View Site</a></button>
+                                </div>
+                            </div>
+                        </div><br>
+
+                       
+                        
+                        
+                        <form action="add_banner" method="POST" class="form-horizontal" id="banner">{% csrf_token %}
+                                            
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Banner Category</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="text-input" required list="browsers" name="banner_category" class="form-control" placeholder="Banner Category">
+                                                      <datalist id="browsers">
+                                                        <option value="All"><p>Show on all categories</p>
+                                                       {% for ca in li %}
+                                                       {% for key,value in diction.items %}
+                                                       {% if key == ca %}
+                                                        <option value="{{ca}}"><p>({{value}}) Products</p>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                        {% endfor %}
+                                                      </datalist>
+                                                    <small class="form-text text-muted">Enter the name of the Products Category with which you want to assign this Banner</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label">Banner Link</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea name="banner_link" required id="textarea-input" rows="9" placeholder="Banner Link" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <input type="submit" value="Save Banner" style="background-color: blue; padding: 6px; color: aliceblue; border-radius: 5px">
+                        </form><hr>
+                        <br>
+                        <h2>Banner First Look</h2><hr>
+                        {% if banner_obj %}
+                        {% for ban in banner_obj %}
+                        <div class="col-md-4 ftco-animate">
+                            <div class="blog-entry" style="text-align: center"><h2>{{ban.banner_category}}</h2><br>
+                                {{ban.banner_link|safe}}<br><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#bann-{{ban.id}}">
+                                    Delete
+                                  </button>
+                          </div>
+                        </div><br><br><hr>
+                        {% endfor %}
+                        {% else %}
+                        <h2 style="color:blue">Preview Banners Here</h2><hr>
+                        {% endif %}<br><br>
+
+                        <h2 class="title-1">Add Widget</h2><br><br>
+
+                        <form action="add_banner" method="POST" class="form-horizontal" id="widget">{% csrf_token %}
+                                            
+                                            
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="text-input" class=" form-control-label">Widget Category</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="text-input" required list="brow" name="widget_category" class="form-control" placeholder="Widget Category">
+                                      <datalist id="brow">
+                                        <option value="All"><p>Show on Both Category as well as Product Pages</p>
+                                            <option value="Categories Page"><p>Show on top of Home Page</p>
+                                                <option value="Product Page"><p>Show on Product Page after Description</p>
+                                      </datalist>
+                                    <small class="form-text text-muted">Select where to Show Affiliate search Widget.</small>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="textarea-input" class=" form-control-label">Widget Link</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <textarea name="widget_link" required id="textarea-input" rows="9" placeholder="Widget Link" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <input type="submit" value="Save Widget" style="background-color: blue; padding: 6px; color: aliceblue; border-radius: 5px">
+        </form>
+        <br>
+        <h2>Widget First Look</h2>
+
+        {% if widget_obj %}
+        {% for wid in widget_obj %}<hr>
+        <div class="col-md-4 ftco-animate">
+            <div class="blog-entry" style="text-align: center"><h2>{{wid.widget_category}}</h2><br>
+                {{wid.widget_link|safe}}<br><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#widd-{{wid.id}}">
+                    Delete
+                  </button>
+            </div>
+        </div><br><br>
+        {% endfor %}
+        {% else %}<hr>
+        <h2 style="color:blue">Preview Widgets Here</h2><hr>
+        {% endif %}<br><br>
+
+        <h2 class="title-1">Add Extra Meta Tags for site SEO</h2><br><br>
+
+                        <form action="add_banner" method="POST" class="form-horizontal" id="meta">{% csrf_token %}
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="textarea-input" class=" form-control-label">Write Meta Tags Here</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <textarea name="tag" id="textarea-input" rows="9"  class="form-control" value="{{tag_obj.tag}}" required>{{tag_obj.tag}}</textarea>
+                                                
+                                </div>
+                            </div>
+                            <input type="submit" value="Save Tags" style="background-color: blue; padding: 6px; color: aliceblue; border-radius: 5px">
+        </form>
+        <br>
+
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright"><p>Copyright Affiliator.in &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
+                                    <p style="color: white">Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" style="color: white">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% for ban in banner_obj %}
+            <div class="modal fade" id="bann-{{ban.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    Are you sure you want to delete the Banner associated with <br>{{ban.banner_category}}
+                    </div>
+                    <div class="modal-footer">
+                        <a href="delete_banner/{{ban.id}}"><button type="button" class="btn btn-danger">Yes</button></a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+            {% for wid in widget_obj %}
+            <div class="modal fade" id="widd-{{wid.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Widget</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    Are you sure you want to delete the Widget associated with <br>{{wid.widget_category}}
+                    </div>
+                    <div class="modal-footer">
+                        <a href="delete_widget/{{wid.id}}"><button type="button" class="btn btn-danger">Yes</button></a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+    <!-- Jquery JS-->
+    <script src="{% static 'dashboard/vendor/jquery-3.2.1.min.js' %}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{% static 'dashboard/vendor/bootstrap-4.1/popper.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/bootstrap-4.1/bootstrap.min.js' %}"></script>
+    <!-- Vendor JS       -->
+    <script src="{% static 'dashboard/vendor/slick/slick.min.js' %}">
+    </script>
+    <script src="{% static 'dashboard/vendor/wow/wow.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/animsition/animsition.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' %}">
+    </script>
+    <script src="{% static 'dashboard/vendor/counter-up/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/counter-up/jquery.counterup.min.js' %}">
+    </script>
+    <script src="{% static 'dashboard/vendor/circle-progress/circle-progress.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/chartjs/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/select2/select2.min.js' %}">
+    </script>
+
+    <!-- Main JS-->
+    <script src="{% static 'dashboard/js/main.js' %}"></script>
+
+</body>
+
+</html>
+<!-- end document-->

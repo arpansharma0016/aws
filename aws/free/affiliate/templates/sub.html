@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Subscribe to Affiliator.in Affiliate Management Program.</title>
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/icon type">
+    <style>
+        html {
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+          }
+          
+          *, *:before, *:after {
+            box-sizing: inherit;
+          }
+          
+          .background {
+            padding: 0 25px 25px;
+            position: relative;
+            width: 100%;
+          }
+          
+          .background::after {
+            content: '';
+            background: #60a9ff;
+            background: -moz-linear-gradient(top, #60a9ff 0%, #4394f4 100%);
+            background: -webkit-linear-gradient(top, #60a9ff 0%,#4394f4 100%);
+            background: linear-gradient(to bottom, #60a9ff 0%,#4394f4 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60a9ff', endColorstr='#4394f4',GradientType=0 );
+            height: 350px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+          }
+          
+          @media (min-width: 900px) {
+            .background {
+              padding: 0 0 25px;
+            }
+          }
+          
+          .container {
+            margin: 0 auto;
+            padding: 50px 0 0;
+            max-width: 960px;
+            width: 100%;
+          }
+          
+          .panel {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px 25px;
+            position: relative;
+            width: 100%;
+            z-index: 10;
+          }
+          
+          .pricing-table {
+            box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+          }
+          
+          @media (min-width: 900px) {
+            .pricing-table {
+              flex-direction: row;
+            }
+          }
+          
+          .pricing-table * {
+            text-align: center;
+            text-transform: uppercase;
+          }
+          
+          .pricing-plan {
+            border-bottom: 1px solid #e1f1ff;
+            padding: 25px;
+          }
+          
+          .pricing-plan:last-child {
+            border-bottom: none;
+          }
+          
+          @media (min-width: 900px) {
+            .pricing-plan {
+              border-bottom: none;
+              border-right: 1px solid #e1f1ff;
+              flex-basis: 100%;
+              padding: 25px 50px;
+            }
+          
+            .pricing-plan:last-child {
+              border-right: none;
+            }
+          }
+          
+          .pricing-img {
+            margin-bottom: 25px;
+            max-width: 100%;
+          }
+          
+          .pricing-header {
+            color: #888;
+            font-weight: 600;
+            letter-spacing: 1px;
+          }
+          
+          .pricing-features {
+            color: #016FF9;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin: 50px 0 25px;
+          }
+          
+          .pricing-features-item {
+            border-top: 1px solid #e1f1ff;
+            font-size: 12px;
+            line-height: 1.5;
+            padding: 15px 0;
+          }
+          
+          .pricing-features-item:last-child {
+            border-bottom: 1px solid #e1f1ff;
+          }
+          
+          .pricing-price {
+            color: #016FF9;
+            display: block;
+            font-size: 32px;
+            font-weight: 700;
+          }
+          
+          .pricing-button {
+            border: 1px solid #9dd1ff;
+            border-radius: 10px;
+            color: #348EFE;
+            display: inline-block;
+            margin: 25px 0;
+            padding: 15px 35px;
+            text-decoration: none;
+            transition: all 150ms ease-in-out;
+          }
+          
+          .pricing-button:hover,
+          .pricing-button:focus {
+            background-color: #e1f1ff;
+          }
+          
+          .pricing-button.is-featured {
+            background-color: #48aaff;
+            color: #fff;
+          }
+          
+          .pricing-button.is-featured:hover,
+          .pricing-button.is-featured:active {
+            background-color: #269aff;
+          }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+          <div class="panel pricing-table">
+            
+            <div class="pricing-plan">
+              <h2 class="pricing-header">Website Details</h2>
+              <ul class="pricing-features">
+                <li class="pricing-features-item">No Coding Required</li>
+                <li class="pricing-features-item">100% Mobile Responsive</li>
+                <li class="pricing-features-item">Unlimitted Bandwidth</li>
+                <li class="pricing-features-item">Unlimitted Visitors</li>
+                <li class="pricing-features-item">Unlimitted Products Visiblity</li>
+                <li class="pricing-features-item">Unlimitted Categories Visibility</li>
+                <li class="pricing-features-item">99.9% Uptime Guarantee</li>
+                <li class="pricing-features-item">and many more...</li>
+              </ul>
+            </div>
+            
+            <div class="pricing-plan">
+              <h2 class="pricing-header">Plan Details</h2>
+              <ul class="pricing-features">
+                <li class="pricing-features-item">Affiliate Management Plan</li>
+                <li class="pricing-features-item">One Year Subscription</li>
+                <li class="pricing-features-item">₹ 99 Per Month</li>
+                <li class="pricing-features-item">Never Sleeps</li>
+                <li class="pricing-features-item">Dedicated Support</li>
+                <li class="pricing-features-item">Instant Site Activation</li>
+                <li class="pricing-features-item">and many more...</li>
+              </ul>
+              <span class="pricing-price">₹ 99 Per Month</span>
+              {% if payment %}
+              
+                        <!--<form class="pricing-button is-featured" action="dash" method="POST">
+                            <script    src="https://checkout.razorpay.com/v1/checkout.js"
+                                data-key="rzp_test_wSMTsEJQTDpLDa"    
+                                data-amount="{{payment.amount}}"   
+                                data-currency="INR"    
+                                data-order_id="{{payment.id}}"    
+                                data-buttontext="Pay Now"    
+                                data-name="Affiliator"    
+                                data-description="Become a member of the Affiliator Affiliate Management Services."    
+                                data-image="{% static 'images/logo.jpg' %}"    
+                                data-prefill.name="{{user.first_name}}"    
+                                data-prefill.email="{{user.email}}"    
+                                data-theme.color="#48aaff">
+                            </script>
+                            <input type="hidden" custom="Hidden Element" name="hidden">
+                          </form>-->
+
+                          <button class="pricing-button is-featured" id="rzp-button1">Pay Now</button>
+                            <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                            <script>
+                            var options = {
+                                "key": "rzp_test_wSMTsEJQTDpLDa", // Enter the Key ID generated from the Dashboard
+                                "amount": "{{payment.amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                                "currency": "INR",
+                                "name": "Affiliator.in",
+                                "description": "Affiliator.in Affiliate Management Program",
+                                "image": "{% static 'images/logo.jpg' %}",
+                                "order_id": "{{payment.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                                "callback_url": "dash",
+                                "prefill": {
+                                    "name": "{{user.first_name}}",
+                                    "email": "{{user.email}}",
+                                    "contact": ""
+                                },
+                                "notes": {
+                                    "address": ""
+                                },
+                                "theme": {
+                                    "color": "#48aaff"
+                                }
+                            };
+                            var rzp1 = new Razorpay(options);
+                            document.getElementById('rzp-button1').onclick = function(e){
+                                rzp1.open();
+                                e.preventDefault();
+                            }
+                            </script>
+                            {% if not pay.trial_done %}
+                            <a href="free_trial"><button class="pricing-button is-featured">Free Trial</button></a>
+                            {% endif %}
+                      
+                {% endif %}
+              <!--<a href="#/" class="pricing-button is-featured">Free trial</a>-->
+            </div>
+            
+            <div class="pricing-plan">
+              <h2 class="pricing-header">Dashboard Details</h2>
+              <ul class="pricing-features">
+                <li class="pricing-features-item">Dedicated Dashboard</li>
+                <li class="pricing-features-item">Add Affiliate Products</li>
+                <li class="pricing-features-item">Edit Affiliate Products</li>
+                <li class="pricing-features-item">Delete Affiliate Products</li>
+                <li class="pricing-features-item">Add Affiliate Products Categories</li>
+                <li class="pricing-features-item">Affiliate Link Images</li>
+                <li class="pricing-features-item">Currency Edit</li>
+                <li class="pricing-features-item">and many more...</li>
+              </ul>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+</body>
+</html>

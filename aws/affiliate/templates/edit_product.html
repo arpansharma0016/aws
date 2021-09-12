@@ -1,0 +1,365 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Edit Products in Your Affiliator.in Dashboard.</title>
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/icon type">
+
+    <!-- Fontfaces CSS-->
+    <link href="{% static 'dashboard/css/font-face.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="{% static 'dashboard/vendor/bootstrap-4.1/bootstrap.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'dashboard/vendor/animsition/animsition.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/wow/animate.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/css-hamburgers/hamburgers.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/slick/slick.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'dashboard/vendor/perfect-scrollbar/perfect-scrollbar.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'dashboard/css/theme.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lite-editor.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="animsition">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header" action="search" method="POST">{% csrf_token %}
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for Products &amp; Affiliate..." />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                            <div class="header-button"><h3>Edit Products &nbsp;</h3>
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="{% static 'dashboard/images/icon/avatar-01.jpg' %}" alt="John Doe" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">{{request.user.username}}</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="{% static 'dashboard/images/icon/avatar-01.jpg' %}" alt="{{request.user.username}}" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">{{request.user.first_name}}</a>
+                                                    </h5>
+                                                    <span class="email">{{request.user.email}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="../dashboard">
+                                                        <i class="zmdi zmdi-account"></i>Dashboard</a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="../add_products">
+                                                        <i class="zmdi zmdi-settings"></i>Add Products</a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="../edit_products">
+                                                        <i class="zmdi zmdi-edit"></i>Edit Products</a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="../info">
+                                                        <i class="zmdi zmdi-money-box"></i>Website Information</a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="../add_banner">
+                                                        <i class="zmdi zmdi-aspect-ratio-alt"></i>Banner, Ads and Search</a>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="../logout">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Edit Products</h2>
+                                    {% for message in messages %}
+                                    <p style="color: rgb(20, 207, 67)">{{message}}</p>
+                                    {% endfor %}
+                                    <button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i><a href="{{BASE_URL}}/{{request.user.username}}" target="_blank" style="color: aliceblue">View Site</a></button>
+                                        
+                                </div>
+                            </div>
+                        </div><br>
+                        
+                        
+                        <form method="POST" class="form-horizontal">{% csrf_token %}
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Product Name</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="text-input" name="product_name" value="{{edit.product_name}}" class="form-control" required>
+                                                    <small class="form-text text-muted">Enter Product Name as you want it to appear.</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Product Category</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="text-input" list="browsers" name="product_category" class="form-control" placeholder="Category" value="{{edit.product_category}}" required>
+                                                      <datalist id="browsers">
+                                                        {% for ca in li %}
+                                                        {% for key,value in diction.items %}
+                                                        {% if key == ca %}
+                                                         <option value="{{ca}}"><p>({{value}}) Products</p>
+                                                         {% endif %}
+                                                         {% endfor %}
+                                                         {% endfor %}
+                                                      </datalist>
+                                                    <small class="form-text text-muted">Choose from existing categories or type in a new category to create.</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Text Link</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="text-input" name="product_text_link" value="{{edit.product_text_link}}" class="form-control" required>
+                                                    <small class="form-text text-muted">Enter small text link towards main product.</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Product Price</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="number" id="text-input" name="product_price" value="{{edit.product_price}}" class="form-control" required>
+                                                    <small class="form-text text-muted">Enter Price in numbers(No Commas)</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label">Image Link</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea name="product_image" id="textarea-input" rows="9"  class="form-control" value="{{edit.product_image}}" required>{{edit.product_image}}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label">Product Description</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea class='js-lite-editor' id="textarea-input" name="product_description" rows="9" required>
+                                                        {{edit.product_description|safe}}
+                                                    </textarea>
+                                                    <script src="{% static 'lite-editor.js' %}"></script>
+                                                    <script>
+                                                    window.addEventListener('DOMContentLoaded',function(){
+                                                        var editor = new LiteEditor('.js-lite-editor');
+                                                    });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                            <input type="submit" value="+ Save Product" style="background-color: blue; padding: 6px; color: aliceblue">
+                        </form><br>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{edit.id}}">
+                            Delete
+                          </button>
+                        <br><br><br>
+                        
+                       
+                        
+                        <h2> First Look </h2><br><br>
+                        
+                        
+                                    <section class="ftco-section ftco-degree-bg">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry" style="text-align: center;box-shadow: 0px 4px 18px -12px rgba(0, 0, 0, 0.75);
+                border: 1px solid #f7f7f7;"><br>
+                  {{ edit.product_image |safe}}
+                  <div class="text p-4 d-block">
+                    <div class="meta mb-3">
+                     <a href="{{edit.product_text_link}}" target="_blank" style="color:black">{{edit.product_name|truncatechars:100}}</a>
+                      
+                    </div>
+                    <h4><a href="{{edit.product_text_link}}" target="_blank" style="color:black">{{paid_user.currency}} {{edit.product_price|intcomma}}</a></h4><br>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">
+                          View Description
+                    </button>
+                  </div>
+                </div>
+              </div>
+          </div>
+          
+          
+        </div>
+    </section><br><br>
+                        
+                        
+                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">overview</h2>
+                                    <button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i><a href="../add_products" style="color: aliceblue">Add Product</a></button>
+                                </div><br>
+                                {% if bro %}
+                                
+                            {% for arpan in li %}
+                                
+                                   <h2 class="title-1">{{arpan}}</h2><br>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-right">Edit</th>
+                                                <th>Affiliate Image</th>
+                                                <th>Product Name</th>
+                                                <th>Text Link</th>
+                                                <th class="text-right">Price</th>
+                                                <th class="text-right">Description</th>
+                                                <th class="text-right">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          
+                                          {% for pro in userpro %}
+                                          {% if arpan == pro.product_category %}
+                                           
+                                            <tr>
+                                               <td class="text-right"><a href="../edit_product/{{pro.id}}"><i class="zmdi zmdi-edit"></i></a></td>
+                                                <td class="text-right">{{pro.product_image|safe}}</td>
+                                                <td>{{pro.product_name|truncatechars:20}}</td>
+                                                <td>{{pro.product_text_link|truncatechars:20}}</td>
+                                                <td class="text-right">{{paid_user.currency}} {{pro.product_price|intcomma}}</td>
+                                                <td class="text-right">{{pro.product_description|safe|truncatechars:20}}</td>
+                                                <td class="text-right"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{pro.id}}">
+                                                    Delete
+                                                  </button></td>
+                                                
+                                            </tr>
+                                            {% endif %}
+                                            {% endfor %}
+                                            
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                                
+                                {% else %}
+                                <div class="table-responsive table--no-card m-b-40">
+                                <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td><h4><a href="add_products">Add Products To Start Earning</a></h4></td></tr>
+                                    </tbody>
+                                    </table></div>
+                                {% endif %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright"><p>Copyright Affiliator.in &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
+                                    <p style="color: white">Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" style="color: white">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% for pro in userpro %}
+            <div class="modal fade" id="{{pro.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    Are you sure you want to delete this product.<br>{{pro.product_name}}
+                    </div>
+                    <div class="modal-footer">
+                        <a href="../delete/{{pro.id}}"><button type="button" class="btn btn-danger">Yes</button></a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+
+    <!-- Jquery JS-->
+    <script src="{% static 'dashboard/vendor/jquery-3.2.1.min.js' %}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{% static 'dashboard/vendor/bootstrap-4.1/popper.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/bootstrap-4.1/bootstrap.min.js' %}"></script>
+    <!-- Vendor JS       -->
+    <script src="{% static 'dashboard/vendor/slick/slick.min.js' %}">
+    </script>
+    <script src="{% static 'dashboard/vendor/wow/wow.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/animsition/animsition.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' %}">
+    </script>
+    <script src="{% static 'dashboard/vendor/counter-up/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/counter-up/jquery.counterup.min.js' %}">
+    </script>
+    <script src="{% static 'dashboard/vendor/circle-progress/circle-progress.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/chartjs/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/select2/select2.min.js' %}">
+    </script>
+
+    <!-- Main JS-->
+    <script src="{% static 'dashboard/js/main.js' %}"></script>
+
+</body>
+
+</html>
+<!-- end document-->

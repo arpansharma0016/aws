@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Subscribe to Affiliator.in Affiliate Management Program.</title>
+    <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/icon type">
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'form/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'form/css/style.css' %}">
+</head>
+<body><br>
+
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <h2 class="form-title">Some Key Features
+                        </h2>
+                        <figure><img src="{% static 'form/images/fea.png' %}" alt="sing up image"></figure>
+                        {% if payment %}
+                        <form action="dash" method="POST">
+                            <script    src="https://checkout.razorpay.com/v1/checkout.js"
+                                data-key="rzp_test_wSMTsEJQTDpLDa"    
+                                data-amount="{{payment.amount}}"   
+                                data-currency="INR"    
+                                data-order_id="{{payment.id}}"    
+                                data-buttontext="Pay ₹99 /month Yearly"    
+                                data-name="Affiliator"    
+                                data-description="Become a member of the Affiliator Affiliate Management Services."    
+                                data-image="{% static 'images/logo.jpg' %}"    
+                                data-prefill.name="{{user.first_name}}"    
+                                data-prefill.email="{{user.email}}"    
+                                data-theme.color="#F37254">
+                            </script>
+                            <input type="hidden" custom="Hidden Element" name="hidden">
+                        </form>
+                        {% endif %}
+                    </div>
+
+                    <div class="signin-form">
+                        
+                            <h3 style="color: green;">☑ No Coding Required</h3>
+                            <h3 style="color: green;">☑ 100% Mobile Responsive</h3>
+                            <h3 style="color: green;">☑ Unlimitted Bandwidth</h3>
+                            <h3 style="color: green;">☑ Free SSL Certificate</h3>
+                            <h3 style="color: green;">☑ SSH Access</h3>
+                            <h3 style="color: green;">☑ Unlimitted Visitors</h3>
+                            <h3 style="color: green;">☑ Unlimitted Affiliate Products</h3>
+                            <h3 style="color: green;">☑ Unlimitted Categories</h3>
+                            <h3 style="color: green;">☑ All in One Dashboard</h3>
+                            <h3 style="color: green;">and many more</h3>
+                    </div>
+                </div>
+            </div>
+
+    <!-- JS -->
+    <script src="{% static 'form/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'form/js/main.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
